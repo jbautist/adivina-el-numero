@@ -59,8 +59,6 @@ def jugar(rango):
                 print(f'El número no es {numero_usuario}.')
                 intentos -=1
                 numeros_ingresados.add(int(numero_usuario))
-        else:
-            continue
 
     if intentos == 0: print(f'\n¡Perdiste! El número era {numero_generado}.') 
         
@@ -99,14 +97,9 @@ while seguir_jugando == 'S':
     clearConsole()
     jugar(int(rango))
 
-    # Bucle para comprobar que el usuario ingrese 's, n, S o N.
     while True:  
-        seguir_jugando = input('\n¿Quiere seguir jugando? [S/N] ')
-        if not seguir_jugando.isalpha():
-            print('\nERROR: has ingresado un carácter incorrecto.')
-        elif seguir_jugando.upper() == 'S' or seguir_jugando.upper() == 'N':
+        seguir_jugando = input('\n¿Quiere seguir jugando? [S/N] ').upper()
+        if seguir_jugando == 'S' or seguir_jugando == 'N':
             break
         else:
-            print('\nERROR: has ingresado una letra incorrecta.')
-
-    seguir_jugando = seguir_jugando.upper()
+            print('\nERROR: ha ingresado un carácter inválido.')
